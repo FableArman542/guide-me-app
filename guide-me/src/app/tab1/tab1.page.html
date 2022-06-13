@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border" translucent="true">
+  <ion-toolbar color="translucent">
+    <div class="center-logo">
+      <img src="assets/logo.svg" height="60px" width="60px" />
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar color="search"></ion-searchbar>
+
+  <div class="tags">
+    <div class="tag">Length</div>
+    <div class="tag gray">Historical</div>
+    <div class="tag gray">Night Life</div>
+    <div class="tag gray">Beaches</div>
+    <div class="tag gray">Cool</div>
+  </div>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of items">
+
+      <app-post-item></app-post-item>
+      
+    </ion-item>
+  </ion-list> -->
+
+  <app-post-item></app-post-item>
+  <app-post-item></app-post-item>
+  <app-post-item></app-post-item>
+  <app-post-item></app-post-item>
+  <app-post-item></app-post-item>
+
+  <app-change-button></app-change-button>
+
+  
+</ion-content>

@@ -1,0 +1,65 @@
+.ion-color-search {
+  --ion-color-base: #3f3f3f;
+  --ion-color-base-rgb: 63, 63, 63;
+  --ion-color-base-contrast: #000000;
+  --ion-color-base-contrast-rgb: 0, 0, 0;
+  --ion-color-base-shade: #b4d5e0;
+  --ion-color-base-tint: #d1f3ff;
+}
+
+.center-logo {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+}
+
+ion-searchbar {
+  border-radius: 10px;
+  width: 351px;
+  height: 41px;
+  margin: auto;
+}
+
+.tags {
+  width: 85%;
+  height: 29px;
+  margin: auto;
+  margin-top: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+  align-items: flex-start;
+  //Hide scrollbar
+  -ms-overflow-style: none;
+  //Firefox
+  scrollbar-width: none;
+  //IE
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+}
+
+.tag {
+  height: 100%;
+  // The text inside only has one line
+  white-space: nowrap;
+  // overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  width: fit-content;
+  background: #009AD0;
+  border-radius: 28px;
+  margin-right: 13px;
+}
+
+.gray {
+  background: #3F3F3F;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "guide-me",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

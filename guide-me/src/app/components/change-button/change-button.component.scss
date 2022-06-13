@@ -1,0 +1,60 @@
+.change-button {
+  position: sticky;
+  z-index: 1;
+
+  width: 223px;
+  height: 50px;
+  left: calc(50% - 223px / 2 - 0.5px);
+  bottom: 50px;
+
+  background: rgba(206, 206, 206, 0.67);
+  border-radius: 28px;
+
+  div {
+    // text formatting
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+
+    // center text
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .guide {
+    // width: 117px;
+    // height: 46px;
+    width: 50%;
+    height: 100%;
+    background: #009ad0;
+    border-radius: 28px;
+    position: relative;
+    float: left;
+    margin: auto;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .map {
+    width: 50%;
+    height: 100%;
+    color: black;
+    // background: #009ad0;
+    border-radius: 28px;
+    // position: relative;
+    float: right;
+    margin: auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(+50%);
+    transform: translateY(-50%);
+  }
+}
