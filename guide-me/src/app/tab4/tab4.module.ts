@@ -7,16 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
-import { ProfileButtonsComponent } from '../components/profile-buttons/profile-buttons.component';
-import { ProfileGuidePostComponent } from '../components/profile-guide-post/profile-guide-post.component';
+import { ProfileButtonsComponent } from '../components/profile/profile-buttons/profile-buttons.component';
+import { ProfileModule } from '../components/profile/profile-guide-post/profile.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Tab4PageRoutingModule
+    Tab4PageRoutingModule,
+    ProfileModule
   ],
-  declarations: [Tab4Page, ProfileButtonsComponent, ProfileGuidePostComponent]
+  declarations: [Tab4Page, ProfileButtonsComponent]
 })
 export class Tab4PageModule {}

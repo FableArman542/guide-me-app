@@ -6,8 +6,9 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { PostItemComponent } from '../components/post-item/post-item.component';
+import { PostItemComponent } from '../components/feed-posts/post-item/post-item.component';
 import { SharedModule } from '../modules/shared/shared.module';
+import { LogoToolbarNoneModule } from '../components/toolbar-logos/logo-toolbar-none/logo-toolbar-none.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { SharedModule } from '../modules/shared/shared.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    SharedModule
+    SharedModule,
+    LogoToolbarNoneModule
   ],
   declarations: [Tab1Page, PostItemComponent]
 })

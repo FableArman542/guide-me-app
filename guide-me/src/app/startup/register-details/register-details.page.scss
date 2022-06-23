@@ -1,0 +1,141 @@
+.title {
+    height: 200px;
+    width: 100%;
+    padding: 0px;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  
+    div {
+      width: 100%;
+      height: auto;
+      margin-bottom: auto;
+  
+      position: absolute;
+      bottom: 0;
+  
+      img {
+        margin: auto;
+        height: auto;
+        display: flex;
+      }
+      .appname {
+        margin: auto;
+        // margin-top: 20px;
+        margin-bottom: 0;
+  
+        width: 100%;
+  
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 40px;
+        line-height: 47px;
+        text-align: center;
+      }
+    }
+  }
+  
+  .back {
+    width: 70%;
+    height: 42px;
+    margin: auto;
+    margin-top: 10px;
+  
+    // Make the img stuck to the start and the text to ocupy the rest of the space
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: center;
+  
+    img {
+      float: left;
+      position: absolute;
+      // margin-left: 10px;
+      // margin-right: 10px;
+    }
+  
+    p {
+      float: left;
+      margin: 0;
+  
+      // Fill the rest of the space
+      flex: 1;
+      text-align: center;
+  
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 47px;
+    }
+  }
+  
+  .details-container {
+    width: 70%;
+    height: auto;
+  
+    margin: auto;
+  
+    .text-boxes {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .interactions {
+    margin-top: 40px;
+    margin-bottom: 100px;
+  
+    p {
+  
+      margin-top: 20px;
+      
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 12px;
+      // display: flex;
+      // align-items: center;
+      text-align: center;
+  
+      a {
+          // Remove the link color
+          color: white;
+          text-decoration: none;
+      }
+    }
+  }
+  
+  .container {
+    width: 100%;
+
+    margin-top: 30px;
+
+    p {
+      width: 100%;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    ion-input {
+      height: 35px;
+    }
+  }
+
+  .validation-errors {
+    margin-bottom: 30px;
+
+    font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 10px;
+      line-height: 10px;
+
+  }

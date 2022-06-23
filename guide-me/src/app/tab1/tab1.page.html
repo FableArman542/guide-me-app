@@ -1,12 +1,13 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 <ion-header class="ion-no-border" translucent="true">
-  <ion-toolbar color="translucent">
-    <div class="center-logo">
-      <img src="assets/logo.svg" height="60px" width="60px" />
-    </div>
-  </ion-toolbar>
+  <app-logo-toolbar-none></app-logo-toolbar-none>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="no-scroll" overflow-scroll="false">
+
   <ion-searchbar color="search"></ion-searchbar>
 
   <div class="tags">

@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { NotificationItemComponent } from '../components/notification-item/notification-item.component';
 
 import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { LogoToolbarBackModule } from '../components/toolbar-logos/logo-toolbar-back/logo-toolbar-back.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     Tab3PageRoutingModule,
+    LogoToolbarBackModule
   ],
   declarations: [Tab3Page, NotificationItemComponent]
 })

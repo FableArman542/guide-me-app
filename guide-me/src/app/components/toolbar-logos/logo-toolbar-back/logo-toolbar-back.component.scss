@@ -1,0 +1,26 @@
+/* Logo toolbar */
+
+ion-toolbar {
+  ion-icon {
+    position: absolute;
+    float: left;
+    // font-size: 40px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    // fill: white;
+    //center vertically
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.center-logo {
+  display: flex;
+  padding: 10px;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+}

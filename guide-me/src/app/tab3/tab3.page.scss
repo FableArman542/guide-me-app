@@ -1,35 +1,19 @@
-/* Logo toolbar */
 
-ion-toolbar {
-    ion-icon {
-        position: absolute;
-        float: left;
-        font-size: 40px;
-        color: white;
-        //center vertically
-        top: 50%;
-        transform: translateY(-50%);
-
-        
-    }
-}
-
-.center-logo {
-    display: flex;
-    padding: 10px;
-    float: right;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background: transparent;
-}
 
 /* Notifications Container */
 
 .notifications-container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    // overflow: hidden;
+  // overflow: hidden;
+}
 
+ion-content {
+  --offset-bottom: auto !important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

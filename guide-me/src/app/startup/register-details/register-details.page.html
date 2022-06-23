@@ -1,0 +1,85 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+
+<ion-content>
+
+  <div class="title">
+    <div>
+      <img src="assets/logo.svg" height="70px" width="70px" />     
+    </div>
+  </div>
+
+  <div class="back">
+    <img src="assets/back-button.svg" width="42px" height="42px"/>
+    <p>Register</p>
+  </div>
+
+  <form 
+  #myForm
+  class="details-container" 
+  [formGroup]="validations_form"
+  (ngSubmit)="tryRegister(validations_form.value)">
+
+    <div class="text-boxes">
+      <!-- <app-startup-text-container text="Username" type="text" placeholder="Enter your username"></app-startup-text-container> -->
+      <ion-input
+        formControlName="email"
+          class="login-input"
+          type="email"
+          placeholder="Enter your email address"
+          
+        ></ion-input>
+      <!-- <app-startup-text-container text="Email Address" type="email" placeholder="Enter your email address"></app-startup-text-container> -->
+      
+      <div class="validation-errors">
+        <ng-container *ngFor="let  validation  of validation_messages.email">
+          <div
+            class="error-message"
+            *ngIf="validations_form.get('email').hasError(validation.type)  &&  (validations_form.get('email').dirty || validations_form.get('email').touched)"
+          >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-input
+      #password
+        formControlName="password"
+          class="login-input"
+          type="password"
+          placeholder="Enter your password"
+          
+        ></ion-input>
+      <!-- <app-startup-text-container text="Password" type="password" placeholder="Enter your password"></app-startup-text-container> -->
+
+      <div class="validation-errors">
+        <ng-container *ngFor="let  validation  of validation_messages.password">
+          <div
+            class="error-message"
+            *ngIf="validations_form.get('password').hasError(validation.type)  &&  (validations_form.get('password').dirty || validations_form.get('password').touched)"
+          >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- <app-startup-text-container text="Re-enter password" type="password" placeholder="Re-enter your password"></app-startup-text-container> -->
+
+      <div class="interactions">
+        <app-generic-startup-button buttonText="Register" height="35px" (submitEvent)="submit()"></app-generic-startup-button>
+        <p>
+          Already have an account? <a (click)="goToLogin()">Sign in</a>
+        </p>
+      </div>
+
+      <label class="error-message">{{errorMessage}}</label>
+
+      <label class="success-message">{{successMessage}}</label>
+
+    </div>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,27 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+<ion-content>
+
+  <div class="title">
+    <div>
+      <img src="assets/logo.svg" height="70px" width="70px" />
+      <p class="appname">GuideMe</p>
+    </div>
+  </div>
+
+  <div id="login-buttons">
+    
+    <ion-button>
+      <img src="assets/google.svg" height="30px" width="30px" />
+      Google
+    </ion-button>
+
+    <p>Or continue with</p>
+    
+    <app-generic-startup-button buttonText="Login with email" (click)="goToLogin()" height="50px"></app-generic-startup-button>
+  </div>
+  
+
+</ion-content>
