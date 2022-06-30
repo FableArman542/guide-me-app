@@ -1,17 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border" translucent="true">
+  <app-logo-toolbar-back></app-logo-toolbar-back>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="tags">
+    <!-- For loop -->
+    <ion-button *ngFor="let day of days" class="tag" (click)="dayClicked($event.srcElement.innerText.split(' ')[1])">
+      Day {{day}}
+    </ion-button>
+    
+
+    <ion-button fill="clear" #add (click)="addDay()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+    
+  </div>
+
+  <div class="info">
+
+    <div>
+      <p class="title">Title</p>
+      <ion-input class="input" placeholder="name title guide" #title (input)="onTitleChange($event.target.value)"></ion-input>
+    </div>
+
+    <div>
+      <p class="title">Tags</p>
+      <ion-input class="input" placeholder="comma, separated, tags" #tags (input)="onTagsChange($event.target.value)"></ion-input>
+    </div>
+
+    <div>
+      <p class="title">Description</p>
+      <ion-input class="input" placeholder="small Description" #description (input)="onDescriptionChange($event.target.value)"></ion-input>
+    </div>
+
+  </div>
+
+  <ion-fab slot="fixed">
+    <ion-fab-button (click)="goToTabDetails()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

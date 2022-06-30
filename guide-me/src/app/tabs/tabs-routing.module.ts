@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab-map/tab-map.module').then( m => m.TabMapPageModule)
       },
       {
+        path: 'tab-create-details',
+        loadChildren: () => import('../tab-create-details/tab-create-details.module').then( m => m.TabCreateDetailsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

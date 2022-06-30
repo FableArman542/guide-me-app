@@ -1,0 +1,23 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="translucent">
+    <ion-icon src="assets/back-button.svg" (click)="backClicked()" ></ion-icon>
+    <div class="center-logo">
+      <img src="assets/logo.svg" height="60px" width="60px" />
+    </div>
+    <a>Post</a>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+  <div class="search-photo">
+    <ion-searchbar color="search" (search)="searchImage($event)" #searchbar></ion-searchbar>
+    <div class="showphoto">
+      <img [src]="imagesource"/>
+    </div>
+  </div>
+
+</ion-content>

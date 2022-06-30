@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import { LogoToolbarBackModule } from 'src/app/components/toolbar-logos/logo-toolbar-back/logo-toolbar-back.module';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
 @NgModule({
@@ -14,7 +14,8 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
+    LogoToolbarBackModule
   ],
   declarations: [Tab2Page]
 })

@@ -29,7 +29,11 @@ const routes: Routes = [
   { 
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },  {
+    path: 'tab-create-details',
+    loadChildren: () => import('./tab-create-details/tab-create-details.module').then( m => m.TabCreateDetailsPageModule)
   },
+
 ];
 @NgModule({
   imports: [

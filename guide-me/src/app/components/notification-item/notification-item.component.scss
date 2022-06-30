@@ -21,14 +21,16 @@
       height: 100%;
 
       background: linear-gradient(
-        90deg,
-        #3f3f3f 0%,
-        #3f3f3f 47.2%,
-        #343434 72.86%,
-        #000000 100.63%,
-        rgba(0, 0, 0, 0) 100.68%
-      );
+        90deg, 
+        #3F3F3F 0%, 
+        #3F3F3F 47.2%, 
+        #343434 72.86%, 
+        #121212 100.63%, 
+        rgba(0, 0, 0, 0
+      ) 100.68%);
       border-radius: 28px;
+
+      
 
       ion-avatar {
         width: 36px;

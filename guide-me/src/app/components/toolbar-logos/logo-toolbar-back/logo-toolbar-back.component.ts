@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-logo-toolbar-back',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoToolbarBackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _location: Location) { }
 
   ngOnInit() {}
+
+  backClicked() {
+    console.log('backClicked');
+    this._location.back();
+  }
 
 }

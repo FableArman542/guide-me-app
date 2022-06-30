@@ -12,6 +12,8 @@ ion-toolbar {
     //center vertically
     top: 50%;
     transform: translateY(-50%);
+
+    cursor: pointer;
   }
 }
 
@@ -24,3 +26,13 @@ ion-toolbar {
   width: 100%;
   background: transparent;
 }
+
+.search-photo {
+
+  width: 90%;
+  height: 130px;
+
+  background: #3F3F3F;
+  border-radius: 20px;
+}
+
