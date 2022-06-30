@@ -1,116 +1,138 @@
 .tags {
-    width: 85%;
-    height: 29px;
-    margin: auto;
-    margin-top: 24px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    //Hide scrollbar
-    -ms-overflow-style: none;
-    //Firefox
-    scrollbar-width: none;
-    //IE
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  width: 85%;
+  height: 29px;
+  margin: auto;
+  margin-top: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  //Hide scrollbar
+  -ms-overflow-style: none;
+  //Firefox
+  scrollbar-width: none;
 
-    #add {
-        width: 25px;
-        height: 100%;
-    }
-  }
-  
-  .tag {
-
-    height: 80%;
-    // The text inside only has one line
-    white-space: nowrap !important;
-    // overflow: hidden;
-    text-overflow: ellipsis !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    // padding: 10px !important;
-    width: fit-content !important;
-    --background: #009ad0 !important;
-    --border-radius: 28px !important;
-    margin-right: 13px !important;
-  
-    font-family: "Roboto" !important;
-    font-style: normal !important;
-      font-weight: 400 !important;
-      font-size: 11px !important;
-      line-height: 13px !important;
-  }
-  
-  .gray {
-    background: #3f3f3f;
-  }
-  
-  .items-container {
-      width: 100%;
-      height: 100%;
+  //IE
+  &::-webkit-scrollbar {
+    display: none;
   }
 
-  .info {
-    width: 80%;
+  #add {
+    width: 25px;
+    height: 100%;
+  }
+}
+
+.tag {
+
+  height: 80%;
+  // The text inside only has one line
+  white-space: nowrap !important;
+  // overflow: hidden;
+  text-overflow: ellipsis !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  // padding: 10px !important;
+  width: fit-content !important;
+  --background: #009ad0 !important;
+  --border-radius: 28px !important;
+  margin-right: 13px !important;
+
+  font-family: "Roboto" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  line-height: 13px !important;
+}
+
+.gray {
+  background: #3f3f3f;
+}
+
+.items-container {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  margin-top: 40px;
+
+  div {
+    width: 100%;
     height: auto;
-    margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
 
-    div {
-        width: 100%;
-        height: auto;
-        margin-top: 20px;
+    .title {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      color: #FFFFFF;
+    }
 
-        .title {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 300;
-            font-size: 24px;
-            line-height: 28px;
-            display: flex;
-            align-items: center;
-            color: #FFFFFF;
-        }
+    .input {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 23px;
+      display: flex;
+      align-items: center;
+      padding: 0px;
 
-        .input {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 300;
-            font-size: 20px;
-            line-height: 23px;
-            display: flex;
-            align-items: center;
-            padding: 0px;
+      --color: #848484;
+      --placeholder-color: #848484;
+    }
 
-            --color: #848484;
-            --placeholder-color: #848484;
-        }
-
-        p {
-            margin: 0;
-        }
+    p {
+      margin: 0;
     }
   }
+}
 
-  ion-fab {
-    position: fixed;
-    bottom: 20px;
-    
-    left: 50%;
-    transform: translateX(-50%);
+ion-fab {
+  position: fixed;
+  bottom: 20px;
 
-    z-index: 1;
-    --background: #009AD0;
-    --color: #FFFFFF;
+  left: 50%;
+  transform: translateX(-50%);
 
-    ion-icon {
-        width: 30px;
-        height: 30px;
+  z-index: 1;
+  --background: #009AD0 !important;
+  --color: #FFFFFF;
+
+  ion-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.grid {
+  width: 80%;
+  height: auto;
+
+  margin: auto;
+
+  ion-grid {
+    ion-row {
+      ion-col {
+        img {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 1;
+          object-fit: cover;
+          border-radius: 18px;
+        }
+      }
     }
   }
+}

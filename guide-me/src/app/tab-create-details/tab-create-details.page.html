@@ -4,19 +4,48 @@
 
 <ion-header class="ion-no-border">
   <ion-toolbar color="translucent">
-    <ion-icon src="assets/back-button.svg" (click)="backClicked()" ></ion-icon>
+    <ion-icon src="assets/back-button.svg" (click)="backClicked()"></ion-icon>
     <div class="center-logo">
       <img src="assets/logo.svg" height="60px" width="60px" />
     </div>
-    <a>Post</a>
+    <a (click)="postClicked()">Post</a>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  
-  <div class="search-photo">
-    <ion-searchbar color="search" (search)="searchImage($event)" #searchbar></ion-searchbar>
-    <div class="showphoto">
-      <img [src]="imagesource"/>
+  <div class="container-info">
+    <ion-input class="input" placeholder="Add location" [(ngModel)]="locationValue"></ion-input>
+
+    <div class="tags">
+      <ion-button *ngFor="let location of locations" class="tag">
+        {{location}}
+      </ion-button>
+    </div>
+    
+
+    <div class="search-photo">
+      <ion-searchbar color="search" (search)="searchImage($event)" placeholder="Searh photo..." #searchbar></ion-searchbar>
+      <div class="showphoto">
+        <img [src]="(imagesource == '') ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1200px-HD_transparent_picture.png' : imagesource" />
+      </div>
+    </div>
+
+    <div class="attributes">
+      <p>Description</p>
+      <ion-textarea placeholder="Type..." [(ngModel)]="descriptionValue"></ion-textarea>
+    </div>
+
+    <div class="attributes" #triplength>
+      <p>Budget</p>
+
+      <div class="twocolumns">
+        <ion-input placeholder="Value..." inputmode="numeric" type="number" [(ngModel)]="budgetValue"></ion-input>
+        <ion-input placeholder="Coin..." [(ngModel)]="budgetCurrency"></ion-input>
+      </div>
+    </div>
+
+    <div class="attributes" #triplength>
+      <p>Trip Length</p>
+      <ion-input placeholder="Number of days, weeks, months..." [(ngModel)]="length"></ion-input>
     </div>
   </div>
 

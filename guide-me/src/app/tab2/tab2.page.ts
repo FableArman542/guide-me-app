@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonInput } from '@ionic/angular';
-import { DayInfo } from '../objects/days-info';
+import { PlaceInfo } from '../objects/place-info';
+import { PostInfo } from '../objects/post-info';
 
 @Component({
   selector: 'app-tab2',
@@ -9,64 +10,82 @@ import { DayInfo } from '../objects/days-info';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  
+
+  defaultLink: string = 'https://images.unsplash.com/photo-1656523916611-770eaee57842?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
+
   currentDay: number = 0;
 
   days: number[] = [1];
-  daysInfo: DayInfo[] = [
-    new DayInfo('', [''], ''),
-  ];
+  daysImgs = { 1: [] };
 
-  constructor(private router: Router) {}
+  postInfo: PostInfo = new PostInfo('', [], '', []);
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['placeInfo'] != null) {
+        let info = JSON.parse(params['placeInfo']);
+        // this.postInfo.places.push(info);
+
+        console.log(parseInt(info._day));
+        console.log(this.daysImgs);
+
+        if (info != null && parseInt(info._day) != null && info._imageUrl != null) {
+          console.log("HEREEEEE");
+          console.log(this.daysImgs)
+          console.log(parseInt(info._day)+1);
+          this.daysImgs[parseInt(info._day) + 1].push(info._imageUrl);
+          
+        }
+
+        // console.log("info > " + info);
+        // console.log("info > " + info._day+1);
+        // console.log("info.day > " + typeof(info));
+        // console.log(info.day);
+        // console.log(info.imageUrl);
+        // console.log(this.postInfo);
+        // console.log(this.currentDay);
+        
+      }
+
+    }
+    );
   }
 
   addDay() {
+    
     this.days.push(this.days.length + 1);
-    this.daysInfo.push(new DayInfo('', [''], ''));
+    this.daysImgs[this.days.length] = [];
+
+    console.log(this.days.length);
+    console.log(this.days);
+    console.log(this.daysImgs);
   }
 
   goToTabDetails() {
     console.log('goToTabDetails');
-    this.router.navigate(['/tabs/tab-create-details']);
+    this.router.navigate(['/tabs/tab-create-details'], { queryParams: { day: this.currentDay } });
   }
 
   onTitleChange(title: string) {
-    this.daysInfo[this.currentDay].title = title;
-    // console.log(this.daysInfo[this.currentDay]);
+    this.postInfo.title = title;
   }
 
   onTagsChange(unprocessed_tags: string) {
     let tags: string[] = unprocessed_tags.split(',');
     tags = tags.map(tag => tag.trim());
-    this.daysInfo[this.currentDay].tags = tags;
+    this.postInfo.tags = tags;
   }
 
   onDescriptionChange(description: string) {
-    this.daysInfo[this.currentDay].description = description;
+    this.postInfo.description = description;
   }
 
-  @ViewChild('title', { read: ElementRef }) titleSelector: ElementRef;
-  @ViewChild('tags', { read: ElementRef }) tagsSelector: ElementRef;
-  @ViewChild('description', { read: ElementRef }) descriptionSelector: ElementRef;
-  renderPage() {
-    // Change the title of text input
-    this.titleSelector.nativeElement.value = this.daysInfo[this.currentDay].title;
-    this.tagsSelector.nativeElement.value = this.daysInfo[this.currentDay].tags.join(', ');
-    this.descriptionSelector.nativeElement.value = this.daysInfo[this.currentDay].description;
-
-    // Log the title inside the text input
-    // console.log(this.titleSelector.nativeElement.value);
-    
-    // console.log('renderPage');
-  }
-  
   dayClicked(value: string) {
-    // string to number
-    this.currentDay = parseInt(value)-1;
-
-    this.renderPage();
+    
+    this.currentDay = parseInt(value) - 1;
+    console.log("CLICKED DAY " + this.currentDay);
   }
 
 }
