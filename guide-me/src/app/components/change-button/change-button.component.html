@@ -4,11 +4,11 @@
 
 <div class="change-button">
 
-  <div class="guide" (click)="clickGuide()">
+  <div [class]="guideActivated ? 'guide activated' : 'guide'" (click)="clickGuide()">
     Guide
   </div>
 
-  <div class="map" (click)="clickMap()">
+  <div [class]="guideActivated ? 'map' : 'map activated'" (click)="clickMap()">
     Map
   </div>
 </div>

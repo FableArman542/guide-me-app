@@ -4,17 +4,19 @@
 <div class="item" (click)="openPost()" >
 
     <div class="destination-image">
-        <img src="{{testImage}}" alt="">
+        <img src="{{post.places[0].imageUrl}}" alt="">
     </div>
 
     <div class="destination-info">
 
         <div class="destination-title">
-            Paris Trip
+            {{post.title}}
         </div>
 
         <div class="destination-subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {{post.description}}
+            <p>Budget: <strong>{{getBudget()}}</strong></p>
+            <p>Trip length: <strong>{{getTripLength()}}</strong></p>
         </div>
         
     </div>

@@ -9,6 +9,8 @@ import {
   FormControl,
 } from '@angular/forms';
 import { FireauthserviceService } from 'src/app/services/fireauthservice/fireauthservice.service';
+import { UsersService } from 'src/app/services/usersservice/users.service';
+import { UserProfile } from 'src/app/models/user-profile';
 
 @Component({
   selector: 'app-register-details',
@@ -39,13 +41,16 @@ export class RegisterDetailsPage implements OnInit {
         message: 'Password must be at least 5 characters long.',
       },
     ],
+    username: [
+      { type: 'required', message: 'Username is required.' },
+      { type: 'minlength', message: 'Username must be at least 5 characters long.' },
+    ]
   };
 
   constructor(
     private authService: FireauthserviceService,
-
+    private usersService: UsersService,
     private formBuilder: FormBuilder,
-
     private router: Router
   ) {}
 
@@ -61,6 +66,10 @@ export class RegisterDetailsPage implements OnInit {
       ),
 
       password: new FormControl(
+        '',
+        Validators.compose([Validators.minLength(5), Validators.required])
+      ),
+      username: new FormControl(
         '',
         Validators.compose([Validators.minLength(5), Validators.required])
       ),
@@ -82,8 +91,15 @@ export class RegisterDetailsPage implements OnInit {
       .then(
         (res) => {
           console.log(res);
+          console.log(value)
 
           this.errorMessage = '';
+
+          this.usersService.addUser(new UserProfile(
+            res.user._delegate.uid,
+            value.email,
+            value.username,
+            ''));
 
           this.successMessage = 'Your account has been created. Please log in.';
         },

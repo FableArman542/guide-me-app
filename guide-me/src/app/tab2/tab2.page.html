@@ -3,7 +3,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
 <ion-header class="ion-no-border" translucent="true">
-  <app-logo-toolbar-back></app-logo-toolbar-back>
+  <!-- <app-logo-toolbar-back></app-logo-toolbar-back> -->
+  <ion-toolbar color="translucent">
+    <ion-icon src="assets/back-button.svg" (click)="backClicked()"></ion-icon>
+    <div class="center-logo">
+      <img src="assets/logo.svg" height="60px" width="60px" />
+    </div>
+    <a (click)="postClicked()">Post</a>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>

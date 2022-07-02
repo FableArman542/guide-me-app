@@ -23,6 +23,26 @@
   (ngSubmit)="tryRegister(validations_form.value)">
 
     <div class="text-boxes">
+
+      <ion-input
+      formControlName="username"
+          class="login-input newer"
+          type="text"
+          placeholder="Enter your username"
+          
+        ></ion-input>
+
+        <div class="validation-errors">
+          <ng-container *ngFor="let  validation  of validation_messages.username">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('username').hasError(validation.type)  &&  (validations_form.get('username').dirty || validations_form.get('username').touched)"
+            >
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+
       <!-- <app-startup-text-container text="Username" type="text" placeholder="Enter your username"></app-startup-text-container> -->
       <ion-input
         formControlName="email"
@@ -52,6 +72,13 @@
           placeholder="Enter your password"
           
         ></ion-input>
+
+        <ion-input
+            class="login-input new"
+            type="password"
+            placeholder="Re-enter your password"
+            
+          ></ion-input>
       <!-- <app-startup-text-container text="Password" type="password" placeholder="Enter your password"></app-startup-text-container> -->
 
       <div class="validation-errors">

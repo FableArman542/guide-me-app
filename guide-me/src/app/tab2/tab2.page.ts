@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonInput } from '@ionic/angular';
-import { PlaceInfo } from '../objects/place-info';
-import { PostInfo } from '../objects/post-info';
+import { PlaceInfo } from '../models/place-info';
+import { PostInfo } from '../models/post-info';
 
 @Component({
   selector: 'app-tab2',
@@ -26,35 +26,63 @@ export class Tab2Page {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['placeInfo'] != null) {
         let info = JSON.parse(params['placeInfo']);
-        // this.postInfo.places.push(info);
 
         console.log(parseInt(info._day));
         console.log(this.daysImgs);
 
         if (info != null && parseInt(info._day) != null && info._imageUrl != null) {
-          console.log("HEREEEEE");
-          console.log(this.daysImgs)
-          console.log(parseInt(info._day)+1);
+
           this.daysImgs[parseInt(info._day) + 1].push(info._imageUrl);
-          
+          this.postInfo.places.push(
+            new PlaceInfo(parseInt(info._day),
+              info._location,
+              info._imageUrl,
+              info._description,
+              parseInt(info._budgetValue),
+              info._budgetCurrency,
+              info._length)
+          );
+
+          console.log(this.postInfo);
         }
 
-        // console.log("info > " + info);
-        // console.log("info > " + info._day+1);
-        // console.log("info.day > " + typeof(info));
-        // console.log(info.day);
-        // console.log(info.imageUrl);
-        // console.log(this.postInfo);
-        // console.log(this.currentDay);
-        
       }
 
     }
     );
   }
 
-  addDay() {
+  postClicked() {
     
+    let objectToSend = {
+      title: this.postInfo.title,
+      tags: this.postInfo.tags,
+      description: this.postInfo.description,
+      places: {
+
+      }
+    }
+
+    // Add places to objectToSend
+    for (let i = 0; i < this.postInfo.places.length; i++) {
+      objectToSend.places[i] = {
+
+        location: this.postInfo.places[i].location,
+        imageUrl: this.postInfo.places[i].imageUrl,
+        description: this.postInfo.places[i].description,
+        budgetValue: this.postInfo.places[i].budgetValue,
+        budgetCurrency: this.postInfo.places[i].budgetCurrency,
+        length: this.postInfo.places[i].length
+
+      }
+    }
+
+    console.log(objectToSend);
+
+  }
+
+  addDay() {
+
     this.days.push(this.days.length + 1);
     this.daysImgs[this.days.length] = [];
 
@@ -83,9 +111,13 @@ export class Tab2Page {
   }
 
   dayClicked(value: string) {
-    
+
     this.currentDay = parseInt(value) - 1;
     console.log("CLICKED DAY " + this.currentDay);
+  }
+
+  backClicked() {
+    this.router.navigate(['/tabs/tab1']);
   }
 
 }
