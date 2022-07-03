@@ -32,17 +32,17 @@
 
     <div>
       <p class="title">Title</p>
-      <ion-input class="input" placeholder="name title guide" #title (input)="onTitleChange($event.target.value)"></ion-input>
+      <ion-input class="input" placeholder="name title guide" #title (input)="onTitleChange($event.target.value)" [(ngModel)]="title_"></ion-input>
     </div>
 
     <div>
       <p class="title">Tags</p>
-      <ion-input class="input" placeholder="comma, separated, tags" #tags (input)="onTagsChange($event.target.value)"></ion-input>
+      <ion-input class="input" placeholder="comma, separated, tags" #tags (input)="onTagsChange($event.target.value)" [(ngModel)]="tags_"></ion-input>
     </div>
 
     <div>
       <p class="title">Description</p>
-      <ion-input class="input" placeholder="small Description" #description (input)="onDescriptionChange($event.target.value)"></ion-input>
+      <ion-input class="input" placeholder="small Description" #description (input)="onDescriptionChange($event.target.value)" [(ngModel)]="description_"></ion-input>
     </div>
 
   </div>

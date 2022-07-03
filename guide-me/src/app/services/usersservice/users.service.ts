@@ -17,8 +17,7 @@ export class UsersService {
     return this.af
       .collection('users')
       .doc(currentUser.uid)
-      .collection('info')
-      .add(JSON.parse(JSON.stringify(user)));
+      .set(JSON.parse(JSON.stringify(user)));
   }
 
 

@@ -29,19 +29,19 @@ export class GuidePostPage implements OnInit {
 
   assemblePostFromJSON(json): PostInfo {
     let places: PlaceInfo[] = [];
-    for (let i = 0; i < json._places.length; i++) {
-      places.push(new PlaceInfo(parseInt(json._places[i]._day),
-        json._places[i]._location,
-        json._places[i]._imageUrl,
-        json._places[i]._description,
-        parseInt(json._places[i]._budgetValue),
-        json._places[i]._budgetCurrency,
-        json._places[i]._length));
+    for (let i = 0; i < json.places.length; i++) {
+      places.push(new PlaceInfo(parseInt(json.places[i].day),
+        json.places[i].location,
+        json.places[i].imageUrl,
+        json.places[i].description,
+        parseInt(json.places[i].budgetValue),
+        json.places[i].budgetCurrency,
+        json.places[i].length));
     }
 
     return new PostInfo(json.title,
-      json._tags,
-      json._description,
+      json.tags,
+      json.description,
       places);
   }
 

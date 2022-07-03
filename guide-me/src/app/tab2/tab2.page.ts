@@ -1,7 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { PlaceInfo } from '../models/place-info';
 import { PostInfo } from '../models/post-info';
+import { PostserviceService } from '../services/postservice/postservice.service';
 
 @Component({
   selector: 'app-tab2',
@@ -19,30 +21,33 @@ export class Tab2Page {
 
   postInfo: PostInfo = new PostInfo('', [], '', []);
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  title_: string;
+  tags_: string;
+  description_: string;
+
+  constructor(private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private postService: PostserviceService,
+    private alertController: AlertController) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['placeInfo'] != null) {
         let info = JSON.parse(params['placeInfo']);
 
-        // console.log(parseInt(info._day));
-        // console.log(this.daysImgs);
 
-        if (info != null && parseInt(info._day) != null && info._imageUrl != null) {
+        if (info != null && parseInt(info.day) != null && info.imageUrl != null) {
 
-          this.daysImgs[parseInt(info._day) + 1].push(info._imageUrl);
+          this.daysImgs[parseInt(info.day) + 1].push(info.imageUrl);
           this.postInfo.places.push(
-            new PlaceInfo(parseInt(info._day),
-              info._location,
-              info._imageUrl,
-              info._description,
-              parseInt(info._budgetValue),
-              info._budgetCurrency,
-              info._length)
+            new PlaceInfo(parseInt(info.day),
+              info.location,
+              info.imageUrl,
+              info.description,
+              parseInt(info.budgetValue),
+              info.budgetCurrency,
+              info.length)
           );
-
-          // console.log(this.postInfo);
         }
 
       }
@@ -50,44 +55,91 @@ export class Tab2Page {
     }
     );
   }
+  created: string = '';
+  async postClicked() {
+    console.log('postClicked');
+    this.checkIfValid();
 
-  postClicked() {
+    this.postService.addPost(this.postInfo)
+      .then(() => {
+        this.created = '';
+      })
+      .catch(error => {
+        this.created = 'error';
+        console.log(error);
+      }
+      );
     
-    let objectToSend = {
-      title: this.postInfo.title,
-      tags: this.postInfo.tags,
-      description: this.postInfo.description,
-      places: {
-
-      }
+    if (this.created === '') {
+      const alert = await this.alertController.create({
+        header: 'Success',
+        message: 'Post created successfully',
+        buttons: ['OK']
+      });
+      this.clearPage();
+      // this.router.navigate(['/tabs/tab1']);
+      await alert.present();
+      
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'Post wasn\'t created',
+        buttons: ['OK']
+      });
+      await alert.present();
     }
 
-    // Add places to objectToSend
-    for (let i = 0; i < this.postInfo.places.length; i++) {
-      objectToSend.places[i] = {
-
-        location: this.postInfo.places[i].location,
-        imageUrl: this.postInfo.places[i].imageUrl,
-        description: this.postInfo.places[i].description,
-        budgetValue: this.postInfo.places[i].budgetValue,
-        budgetCurrency: this.postInfo.places[i].budgetCurrency,
-        length: this.postInfo.places[i].length
-
-      }
-    }
-
-    console.log(objectToSend);
 
   }
 
-  addDay() {
+  async checkIfValid() {
+    // Check if all fields are filled
+    if (this.postInfo.title == null || this.postInfo.title == '') {
+      await this.presentAlert('Please enter a title');
+      return;
+    }
+    if (this.postInfo.tags == null || this.postInfo.tags.length == 0) {
+      await this.presentAlert('Please enter at least one tag');
+      return;
+    }
+    if (this.postInfo.description == null || this.postInfo.description == '') {
+      await this.presentAlert('Please enter a description');
+      return;
+    }
+    if (this.postInfo.places.length == 0) {
+      await this.presentAlert('Please enter at least one place');
+      return;
+    }
+  }
 
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: message,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  clearPage() {
+    console.log('clearPage');
+    this.title_ = '';
+    this.tags_ = '';
+    this.description_ = '';
+
+    this.router.navigate(['.'], { relativeTo: this.activatedRoute, queryParams: null});
+
+    this.currentDay = 0;
+    this.postInfo = new PostInfo('', [], '', []);
+    this.days = [1];
+    this.daysImgs = { 1: [] };
+
+    
+  }
+
+  addDay() {
     this.days.push(this.days.length + 1);
     this.daysImgs[this.days.length] = [];
-
-    // console.log(this.days.length);
-    // console.log(this.days);
-    // console.log(this.daysImgs);
   }
 
   goToTabDetails() {

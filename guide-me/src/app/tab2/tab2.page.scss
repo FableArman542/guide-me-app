@@ -175,13 +175,16 @@ ion-fab {
 
   ion-grid {
     ion-row {
+      height: 175px;
       ion-col {
+        height: 100%;
         img {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 1;
-          object-fit: cover;
-          border-radius: 18px;
+          position: relative !important;
+          width: 100% !important;
+          height: 100% !important;
+          // aspect-ratio: 1 !important;
+          object-fit: cover !important;
+          border-radius: 18px !important;
         }
       }
     }
