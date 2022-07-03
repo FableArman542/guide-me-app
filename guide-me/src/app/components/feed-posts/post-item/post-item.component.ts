@@ -19,7 +19,8 @@ export class PostItemComponent implements OnInit {
 
   openPost(): void {
     console.log('Open Post');
-    this.router.navigate(['/guide-post']);
+    console.log(this.post.places);
+    this.router.navigate(['/guide-post'], { queryParams: { post: JSON.stringify(this.post) } });
   }
 
   getBudget(): string {

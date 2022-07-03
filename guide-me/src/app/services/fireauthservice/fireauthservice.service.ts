@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';  
-import { FireserviceService } from '../fireservice/fireservice.service';  
+import { FireserviceService } from '../fireservice/fireservice.service';
+// import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 
 @Injectable({

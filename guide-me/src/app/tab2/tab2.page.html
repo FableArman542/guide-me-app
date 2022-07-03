@@ -17,7 +17,7 @@
 
   <div class="tags">
     <!-- For loop -->
-    <ion-button *ngFor="let day of days" class="tag" (click)="dayClicked($event.srcElement.innerText.split(' ')[1])">
+    <ion-button *ngFor="let day of days" (click)="dayClicked($event.srcElement.innerText.split(' ')[1])" [ngClass]="(day-1) == currentDay ? 'tag' : 'tag gray'">
       Day {{day}}
     </ion-button>
     

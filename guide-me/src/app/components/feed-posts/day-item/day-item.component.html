@@ -4,17 +4,19 @@
 <div class="item">
 
     <div class="destination-image">
-        <img src="{{testImage}}" alt="">
+        <img src="{{place.imageUrl}}" alt="">
     </div>
 
     <div class="destination-info">
 
         <div class="destination-title">
-            Paris Trip
+            {{place.location}}
         </div>
 
         <div class="destination-subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {{place.description}}
+            <p>Budget: <strong [ngClass]="place.budgetValue == 0 ? 'free' : ''">{{place.budgetValue == 0 ? "Free" : place.budgetValue}}</strong></p>
+            <p>Trip length: <strong>{{place.length}}</strong></p>
         </div>
         
     </div>

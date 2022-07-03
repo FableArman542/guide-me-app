@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IonInput } from '@ionic/angular';
 import { PlaceInfo } from '../models/place-info';
 import { PostInfo } from '../models/post-info';
 
@@ -27,8 +26,8 @@ export class Tab2Page {
       if (params['placeInfo'] != null) {
         let info = JSON.parse(params['placeInfo']);
 
-        console.log(parseInt(info._day));
-        console.log(this.daysImgs);
+        // console.log(parseInt(info._day));
+        // console.log(this.daysImgs);
 
         if (info != null && parseInt(info._day) != null && info._imageUrl != null) {
 
@@ -43,7 +42,7 @@ export class Tab2Page {
               info._length)
           );
 
-          console.log(this.postInfo);
+          // console.log(this.postInfo);
         }
 
       }
@@ -86,13 +85,13 @@ export class Tab2Page {
     this.days.push(this.days.length + 1);
     this.daysImgs[this.days.length] = [];
 
-    console.log(this.days.length);
-    console.log(this.days);
-    console.log(this.daysImgs);
+    // console.log(this.days.length);
+    // console.log(this.days);
+    // console.log(this.daysImgs);
   }
 
   goToTabDetails() {
-    console.log('goToTabDetails');
+    // console.log('goToTabDetails');
     this.router.navigate(['/tabs/tab-create-details'], { queryParams: { day: this.currentDay } });
   }
 
@@ -113,7 +112,7 @@ export class Tab2Page {
   dayClicked(value: string) {
 
     this.currentDay = parseInt(value) - 1;
-    console.log("CLICKED DAY " + this.currentDay);
+    // console.log("CLICKED DAY " + this.currentDay);
   }
 
   backClicked() {

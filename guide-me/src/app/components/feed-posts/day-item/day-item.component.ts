@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlaceInfo } from 'src/app/models/place-info';
 
 @Component({
   selector: 'app-day-item',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DayItemComponent implements OnInit {
 
+  @Input() place;
+
   testImage : string = "https://cdn.getyourguide.com/img/location/5ffeb392eb81e.jpeg/68.jpg";
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }
