@@ -9,6 +9,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { PostItemComponent } from '../components/feed-posts/post-item/post-item.component';
 import { SharedModule } from '../modules/shared/shared.module';
 import { LogoToolbarNoneModule } from '../components/toolbar-logos/logo-toolbar-none/logo-toolbar-none.module';
+import { Ng2SearchPipe } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { LogoToolbarNoneModule } from '../components/toolbar-logos/logo-toolbar-
     SharedModule,
     LogoToolbarNoneModule
   ],
-  declarations: [Tab1Page, PostItemComponent]
+  exports: [Ng2SearchPipe],
+  declarations: [Tab1Page, PostItemComponent, Ng2SearchPipe]
 })
 export class Tab1PageModule {}

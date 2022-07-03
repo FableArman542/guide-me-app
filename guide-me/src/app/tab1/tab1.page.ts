@@ -11,7 +11,9 @@ import { PostserviceService } from '../services/postservice/postservice.service'
 })
 export class Tab1Page {
 
-  myLogo = 'assets/logo.svg';
+  searchTerm: string;
+
+  myLogo: string = 'assets/logo.svg';
   posts: PostInfo[];
   defaultUrl = 'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
   newurl = 'https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'

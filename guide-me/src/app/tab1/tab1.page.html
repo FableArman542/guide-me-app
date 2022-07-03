@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true" class="no-scroll" overflow-scroll="false">
 
-  <ion-searchbar color="search"></ion-searchbar>
+  <ion-searchbar color="search" [(ngModel)]="searchTerm"></ion-searchbar>
 
   <div class="tags">
     <div class="tag">Length</div>
@@ -18,7 +18,7 @@
     <div class="tag gray">Cool</div>
   </div>
 
-  <div *ngFor="let post of posts">
+  <div *ngFor="let post of posts | filter:searchTerm">
     <app-post-item [post]="post"></app-post-item>
   </div>
 
