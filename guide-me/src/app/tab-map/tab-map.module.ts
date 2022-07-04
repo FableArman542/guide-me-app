@@ -8,6 +8,7 @@ import { TabMapPageRoutingModule } from './tab-map-routing.module';
 
 import { TabMapPage } from './tab-map.page';
 import { SharedModule } from '../modules/shared/shared.module';
+import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 // import { ChangeButtonComponent } from '../components/change-button/change-button.component';
 
 @NgModule({
@@ -18,6 +19,9 @@ import { SharedModule } from '../modules/shared/shared.module';
     TabMapPageRoutingModule,
     SharedModule
   ],
-  declarations: [TabMapPage]
+  declarations: [TabMapPage],
+  providers: [
+    NativeGeocoder
+  ]
 })
 export class TabMapPageModule {}
