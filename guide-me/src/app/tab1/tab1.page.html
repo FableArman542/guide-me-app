@@ -11,14 +11,14 @@
   <ion-searchbar color="search" [(ngModel)]="searchTerm"></ion-searchbar>
 
   <div class="tags">
-    <div class="tag">Length</div>
-    <div class="tag gray">Historical</div>
-    <div class="tag gray">Night Life</div>
-    <div class="tag gray">Beaches</div>
-    <div class="tag gray">Cool</div>
+    <ion-button class="tag">Length</ion-button>
+    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Historical' == searchTerm ? 'tag' : 'tag gray'">Historical</ion-button>
+    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Night Life' == searchTerm ? 'tag' : 'tag gray'">Night Life</ion-button>
+    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Beaches' == searchTerm ? 'tag' : 'tag gray'">Beaches</ion-button>
+    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Cool' == searchTerm ? 'tag' : 'tag gray'">Cool</ion-button>
   </div>
 
-  <div *ngFor="let post of posts | filter:searchTerm">
+  <div *ngFor="let post of posts | filter:searchTerm; let last = last;">
     <app-post-item [post]="post"></app-post-item>
   </div>
 

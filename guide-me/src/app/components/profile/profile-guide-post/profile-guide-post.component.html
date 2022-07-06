@@ -3,8 +3,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 <ion-card>
-  <img src="https://img.mobiscroll.com/demos/card_2.png">
+  <img [src]="post.places[0].imageUrl" (click)="onPostClicked()">
   <ion-card-header>
-    <ion-card-title>Paris trip</ion-card-title>
+    <ion-card-title>{{post.title}}</ion-card-title>
   </ion-card-header>
 </ion-card>

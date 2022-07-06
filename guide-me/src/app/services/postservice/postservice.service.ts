@@ -12,8 +12,8 @@ export class PostserviceService {
   constructor(public af: AngularFirestore) { }
 
   addPost(post: PostInfo) {
-    console.log("ADD POST");
-    console.log(post);
+    // console.log("ADD POST");
+    // console.log(post);
     if (post.places.length == 0) return;
     if (post.places[0].imageUrl == null || post.places[0].imageUrl=='') return;
 
@@ -29,6 +29,12 @@ export class PostserviceService {
   getPosts() {
     // Get all posts from /posts collection
     return this.af.collection('posts').valueChanges();
+  }
+
+  getPostsByUser(userId: string) {
+    // Get all posts from /posts collection
+    return this.af.collection('posts', ref => ref.where('userId', '==', userId)).valueChanges();
+    
   }
 
 }

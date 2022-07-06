@@ -40,24 +40,12 @@ export class Tab1Page {
       this.posts = ps;
 
     });
-
-    // this.posts = [
-    //   new PostInfo('Post 1', ['tag1', 'tag2'], 'This is the first post', [
-    //     new PlaceInfo(0, 'This is the first place',this.defaultUrl, "descricacao", 10, 'EUR', '1h'),
-    //     new PlaceInfo(0, 'This is the first sec place',this.newnewurl, "descriasdascacao", 0, 'EUR', '1h'),
-    //     new PlaceInfo(1, 'This is the second place', this.newurl, "descricacao", 10, 'EUR', '1h'),
-    //     new PlaceInfo(2, 'This is the third place', this.newnewurl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 2', ['tag1', 'tag2'], 'This is the second post', [new PlaceInfo(0, 'This is the second place',       this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 3', ['tag1', 'tag2'], 'This is the third post', [new PlaceInfo(0, 'This is the third place',         this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 4', ['tag1', 'tag2'], 'This is the fourth post', [new PlaceInfo(0, 'This is the fourth place',       this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 5', ['tag1', 'tag2'], 'This is the fifth post', [new PlaceInfo(0, 'This is the fifth place',         this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 6', ['tag1', 'tag2'], 'This is the sixth post', [new PlaceInfo(0, 'This is the sixth place',         this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 7', ['tag1', 'tag2'], 'This is the seventh post', [new PlaceInfo(0, 'This is the seventh place',     this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 8', ['tag1', 'tag2'], 'This is the eighth post', [new PlaceInfo(0, 'This is the eighth place',       this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 9', ['tag1', 'tag2'], 'This is the ninth post', [new PlaceInfo(0, 'This is the ninth place',         this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 10', ['tag1', 'tag2'], 'This is the tenth post', [new PlaceInfo(0, 'This is the tenth place',        this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 11', ['tag1', 'tag2'], 'This is the eleventh post', [new PlaceInfo(0, 'This is the eleventh place',  this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    //   new PostInfo('Post 12', ['tag1', 'tag2'], 'This is the twelfth post', [new PlaceInfo(0, 'This is the twelfth place',    this.defaultUrl, "descricacao", 10, 'EUR', '1h')]),
-    // ];
   }
+
+  setSearchTerm(value) {
+    console.log(value)
+    this.searchTerm = value;
+  }
+
+
 }

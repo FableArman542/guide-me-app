@@ -35,28 +35,31 @@ ion-searchbar {
 }
 
 .tag {
-  height: 100%;
-  // The text inside only has one line
-  white-space: nowrap;
-  // overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  width: fit-content;
-  background: #009ad0;
-  border-radius: 28px;
-  margin-right: 13px;
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 18px;
+  height: 80%;
+  // The text inside only has one line
+  white-space: nowrap !important;
+  // overflow: hidden;
+  text-overflow: ellipsis !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  // padding: 10px !important;
+  width: fit-content !important;
+
+  --background: #009ad0 !important;
+  --border-radius: 28px !important;
+
+  margin-right: 13px !important;
+
+  font-family: "Roboto" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  line-height: 13px !important;
 }
 
 .gray {
-  background: #3f3f3f;
+  --background: #3f3f3f !important;
 }

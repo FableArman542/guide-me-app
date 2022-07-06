@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AnyForUntypedForms } from '@angular/forms';
 
-declare var H: any;
-
 @Injectable({
   providedIn: 'root'
 })
 export class GeolocationService {
 
-  public platform: any;
-  public geocoder: any;
+  key: string = '5c6933dcae65ddf7b8dc20de50c2ee24';
+  url: string = 'http://api.positionstack.com/v1/';
 
   constructor() {
     // this.platform = new H.service.Platform({

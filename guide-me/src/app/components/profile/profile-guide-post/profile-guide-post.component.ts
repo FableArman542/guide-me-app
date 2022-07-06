@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostInfo } from 'src/app/models/post-info';
 
 @Component({
   selector: 'app-profile-guide-post',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileGuidePostComponent implements OnInit {
 
-  constructor() { }
+  @Input() post: PostInfo;
 
-  ngOnInit() {}
+  constructor(private router: Router) { }
+
+  ngOnInit() { }
+
+  onPostClicked() {
+    this.router.navigate(['/guide-post'], { queryParams: { post: JSON.stringify(this.post) } });
+  }
 
 }
