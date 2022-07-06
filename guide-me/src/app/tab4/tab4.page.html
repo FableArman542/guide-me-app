@@ -1,6 +1,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
 
 <ion-header class="ion-no-border" translucent="true">
@@ -21,14 +21,35 @@
     </ion-avatar>
 
     <div class="profile-name">
-      @judith_smith
+      @{{user != null ? user.displayName : 'Loading...'}}
     </div>
 
   </div>
 
-  <app-profile-buttons></app-profile-buttons>
+  <ion-segment value="chats" [(ngModel)]="tabSelected">
+    <ion-segment-button value="guide">
+      <ion-label>Guide</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="about">
+      <ion-label>About</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="saved">
+      <ion-label>Saved</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <div class="horizontal-scroll">
+  <ion-segment value="test">
+    <ion-segment-button value="guide">
+      <ion-label>Guide</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="map">
+      <ion-label>Map</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+
+  <div class="horizontal-scroll" *ngIf="tabSelected==='guide'">
     <!-- <div class="profileguidepost" *ngFor="let post of posts"> -->
       <app-profile-guide-post *ngFor="let post of posts" [post]="post"></app-profile-guide-post>
     <!-- </div> -->

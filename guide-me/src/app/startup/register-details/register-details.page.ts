@@ -99,7 +99,9 @@ export class RegisterDetailsPage implements OnInit {
             res.user._delegate.uid,
             value.email,
             value.username,
-            ''));
+            '',
+            '',
+            true));
 
           this.successMessage = 'Your account has been created. Please log in.';
         },

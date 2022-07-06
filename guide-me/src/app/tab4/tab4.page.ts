@@ -4,6 +4,9 @@ import { PostserviceService } from '../services/postservice/postservice.service'
 import { PostInfo } from '../models/post-info';
 import { PlaceInfo } from '../models/place-info';
 import firebase from 'firebase/compat/app';
+import { UsersService } from '../services/usersservice/users.service';
+import { UserProfile } from '../models/user-profile';
+import { throws } from 'assert';
 
 @Component({
   selector: 'app-tab4',
@@ -13,12 +16,20 @@ import firebase from 'firebase/compat/app';
 export class Tab4Page implements OnInit {
 
   posts: PostInfo[];
+  tabSelected: string = "guide";
+  user: UserProfile;
 
   constructor(private postService: PostserviceService,
+    private userService: UsersService,
     private af: AngularFireAuth) { }
 
   ngOnInit() {
-    //firebase.auth().currentUser.uid
+    this.getPosts();
+    this.getUser();
+  }
+
+  getPosts() {
+    // TODO firebase.auth().currentUser.uid
     this.postService.getPostsByUser("2KxmSgjyiZb4rr7EUEblXheGw1u2").subscribe(postsGotten => {
       // console.log(postsGotten);
 
@@ -36,7 +47,24 @@ export class Tab4Page implements OnInit {
       });
       this.posts = ps;
     });
+  }
+  
+  getUser() {
+    // TODO firebase.auth().currentUser.uid
+    this.userService.getUser("2KxmSgjyiZb4rr7EUEblXheGw1u2").subscribe(userGotten => {
+      console.log(userGotten);
 
+      this.user = new UserProfile(
+      userGotten['uid'],
+      userGotten['email'],
+      userGotten['displayName'],
+      userGotten['photoURL'],
+      userGotten['bio'],
+      userGotten['ispublic']);
+      
+      
+
+    });
   }
 
 }

@@ -73,3 +73,35 @@ ion-toolbar {
   }
 }
 
+ion-segment {
+  --background: none;
+  width: 80%;
+  height: 38px;
+
+  margin: auto;
+
+  ion-segment-button {
+    font-size: 1rem;
+    --border-width: 0;
+    --padding-start: 8px;
+    --padding-bottom: 10px;
+    --padding-end: 8px;
+    --padding-top: 10px;
+    --background-checked: #009ad0;
+    --indicator-color: #009ad0 !important;
+    --color: #d1d1d1;
+    --color-checked: white;
+    --border-radius: 28px;
+    margin: 0;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+  }
+}

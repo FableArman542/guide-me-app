@@ -20,5 +20,9 @@ export class UsersService {
       .set(JSON.parse(JSON.stringify(user)));
   }
 
+  getUser(userUuid: string) {
+    return this.af.collection('users').doc(userUuid).valueChanges();
+  }
+
 
 }
