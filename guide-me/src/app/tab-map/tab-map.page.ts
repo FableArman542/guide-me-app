@@ -49,7 +49,7 @@ export class TabMapPage implements OnInit {
   ionViewDidEnter() {
     // In setView add latLng and zoom
     // tslint:disable-next-line:quotemark
-    console.log("ionViewDidEnter" + this.map);
+    console.log("ionViewDidEnter");
     this.map = new Map('mapId3').setView(
       [38.757026, -9.1185779],
       10

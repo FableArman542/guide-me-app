@@ -81,27 +81,31 @@ ion-segment {
   margin: auto;
 
   ion-segment-button {
-    font-size: 1rem;
-    --border-width: 0;
-    --padding-start: 8px;
-    --padding-bottom: 10px;
-    --padding-end: 8px;
-    --padding-top: 10px;
-    --background-checked: #009ad0;
-    --indicator-color: #009ad0 !important;
-    --color: #d1d1d1;
-    --color-checked: white;
-    --border-radius: 28px;
-    margin: 0;
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    height: 100% !important;
+    font-size: 1rem !important;
+    --border-width: 0 !important;
+    --padding-start: 8px !important;
+    --padding-bottom: 10px !important;
+    --padding-end: 8px !important;
+    --padding-top: 10px !important;
+    --background-checked: #009ad0 !important;
+    --indicator-color: none !important;
+    --color: #d1d1d1 !important;
+    --color-checked: white !important;
+    --border-radius: 28px !important;
+    margin: 0 !important;
+
+    font-family: 'Roboto' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    text-align: center !important;
+
+    min-height: 30px !important;
 
   }
 }

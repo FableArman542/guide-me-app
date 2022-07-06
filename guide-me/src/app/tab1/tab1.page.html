@@ -1,6 +1,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
 <ion-header class="ion-no-border" translucent="true">
   <app-logo-toolbar-none></app-logo-toolbar-none>
@@ -8,20 +8,40 @@
 
 <ion-content [fullscreen]="true" class="no-scroll" overflow-scroll="false">
 
-  <ion-searchbar color="search" [(ngModel)]="searchTerm"></ion-searchbar>
+  <div *ngIf="!mapVisible">
+    <ion-searchbar color="search" [(ngModel)]="searchTerm"></ion-searchbar>
 
-  <div class="tags">
-    <ion-button class="tag">Length</ion-button>
-    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Historical' == searchTerm ? 'tag' : 'tag gray'">Historical</ion-button>
-    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Night Life' == searchTerm ? 'tag' : 'tag gray'">Night Life</ion-button>
-    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Beaches' == searchTerm ? 'tag' : 'tag gray'">Beaches</ion-button>
-    <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)" [ngClass]="'Cool' == searchTerm ? 'tag' : 'tag gray'">Cool</ion-button>
+    <div class="tags">
+      <ion-button class="tag">Length</ion-button>
+      <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)"
+        [ngClass]="'Historical' == searchTerm ? 'tag' : 'tag gray'">Historical</ion-button>
+      <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)"
+        [ngClass]="'Night Life' == searchTerm ? 'tag' : 'tag gray'">Night Life</ion-button>
+      <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)"
+        [ngClass]="'Beaches' == searchTerm ? 'tag' : 'tag gray'">Beaches</ion-button>
+      <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)"
+        [ngClass]="'Cool' == searchTerm ? 'tag' : 'tag gray'">Cool</ion-button>
+    </div>
+
+    <div *ngFor="let post of posts | filter:searchTerm; let last = last;">
+      <app-post-item [post]="post"></app-post-item>
+    </div>
   </div>
 
-  <div *ngFor="let post of posts | filter:searchTerm; let last = last;">
-    <app-post-item [post]="post"></app-post-item>
+  <div *ngIf="mapVisible">
+    <div id="mapId3" style="position: fixed; width: 100%; height: 100vh; z-index: -1;">
+    </div>
   </div>
 
-  <app-change-button [guideActivated]="true"></app-change-button>
+  <!-- <app-change-button [guideActivated]="true"></app-change-button> -->
+
+  <ion-segment value="test" [(ngModel)]="tabSelected" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="guide">
+      <ion-label [ngClass]="tabSelected=='guide' ? 'whitetext' : 'blacktext'">Guide</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="map">
+      <ion-label [ngClass]="tabSelected=='map' ? 'whitetext' : 'blacktext'">Map</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
 </ion-content>

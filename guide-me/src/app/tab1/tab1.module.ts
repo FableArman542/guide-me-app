@@ -10,6 +10,7 @@ import { PostItemComponent } from '../components/feed-posts/post-item/post-item.
 import { SharedModule } from '../modules/shared/shared.module';
 import { LogoToolbarNoneModule } from '../components/toolbar-logos/logo-toolbar-none/logo-toolbar-none.module';
 import { Ng2SearchPipe } from 'ng2-search-filter';
+import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { Ng2SearchPipe } from 'ng2-search-filter';
     LogoToolbarNoneModule
   ],
   exports: [Ng2SearchPipe],
-  declarations: [Tab1Page, PostItemComponent, Ng2SearchPipe]
+  declarations: [Tab1Page, PostItemComponent, Ng2SearchPipe],
+  providers: [NativeGeocoder]
 })
 export class Tab1PageModule {}

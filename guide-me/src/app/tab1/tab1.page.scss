@@ -28,6 +28,7 @@ ion-searchbar {
   -ms-overflow-style: none;
   //Firefox
   scrollbar-width: none;
+
   //IE
   &::-webkit-scrollbar {
     display: none;
@@ -62,4 +63,47 @@ ion-searchbar {
 
 .gray {
   --background: #3f3f3f !important;
+}
+
+ion-segment {
+  --background: rgba(206, 206, 206, 0.67);
+  border-radius: 28px;
+  padding-left: 2px;
+  padding-right: 2px;
+
+  width: 80%;
+  height: 50px;
+
+  position: fixed;
+  z-index: 1;
+  width: 223px;
+  height: 50px;
+  left: calc(50% - 223px / 2 - 0.5px);
+  bottom: 50px;
+
+  ion-segment-button {
+    --background-checked: #009ad0;
+    --indicator-color: none !important;
+    --border-radius: 28px;
+
+    // text formatting
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    // center text
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.blacktext {
+  color: black;
+}
+
+.whitetext {
+  color: white;
 }
