@@ -107,3 +107,10 @@ ion-segment {
 .whitetext {
   color: white;
 }
+
+#mapId3 {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 150px);
+  z-index: -1;
+}

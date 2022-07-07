@@ -60,11 +60,6 @@ export class Tab1Page {
     this.searchTerm = value;
   }
 
-  // Map
-  ionViewDidEnter() {
-    
-  }
-
   ionViewWillLeave() {
     this.map.remove();
   }
@@ -85,12 +80,14 @@ export class Tab1Page {
           let longitude = result[0].longitude;
           console.log("latitude: " + parseInt(latitude));
           console.log("longitude: " + longitude);
+
           let greenIcon = L.icon({
             iconUrl: image,
             iconSize: [150, 150],
             iconAnchor: [25, 50],
             popupAnchor: [0, -50]
           });
+
           L.marker(
             [parseInt(latitude), parseInt(longitude)],
             { icon: greenIcon }).addTo(this.map)
