@@ -6,7 +6,6 @@ import { PlaceInfo } from '../models/place-info';
 import firebase from 'firebase/compat/app';
 import { UsersService } from '../services/usersservice/users.service';
 import { UserProfile } from '../models/user-profile';
-import { throws } from 'assert';
 
 @Component({
   selector: 'app-tab4',
@@ -29,8 +28,7 @@ export class Tab4Page implements OnInit {
   }
 
   getPosts() {
-    // TODO firebase.auth().currentUser.uid
-    this.postService.getPostsByUser("2KxmSgjyiZb4rr7EUEblXheGw1u2").subscribe(postsGotten => {
+    this.postService.getPostsByUser(firebase.auth().currentUser.uid).subscribe(postsGotten => {
       // console.log(postsGotten);
 
       let ps: PostInfo[] = [];
@@ -50,8 +48,8 @@ export class Tab4Page implements OnInit {
   }
   
   getUser() {
-    // TODO firebase.auth().currentUser.uid
-    this.userService.getUser("2KxmSgjyiZb4rr7EUEblXheGw1u2").subscribe(userGotten => {
+    // "2KxmSgjyiZb4rr7EUEblXheGw1u2"
+    this.userService.getUser(firebase.auth().currentUser.uid).subscribe(userGotten => {
       console.log(userGotten);
 
       this.user = new UserProfile(
