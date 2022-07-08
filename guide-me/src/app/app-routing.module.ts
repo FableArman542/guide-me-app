@@ -4,15 +4,11 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./startup/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./standalone-pages/startup/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  {
-    path: 'tab-map',
-    loadChildren: () => import('./tab-map/tab-map.module').then( m => m.TabMapPageModule)
   },
   {
     path: 'guide-post',
@@ -20,11 +16,11 @@ const routes: Routes = [
   },
   {
     path: 'login-details',
-    loadChildren: () => import('./startup/login-details/login-details.module').then( m => m.LoginDetailsPageModule)
+    loadChildren: () => import('./standalone-pages/startup/login-details/login-details.module').then( m => m.LoginDetailsPageModule)
   },
   {
     path: 'register-details',
-    loadChildren: () => import('./startup/register-details/register-details.module').then( m => m.RegisterDetailsPageModule)
+    loadChildren: () => import('./standalone-pages/startup/register-details/register-details.module').then( m => m.RegisterDetailsPageModule)
   },
   { 
     path: '',

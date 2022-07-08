@@ -8,7 +8,6 @@ import { LoginDetailsPageRoutingModule } from './login-details-routing.module';
 
 import { LoginDetailsPage } from './login-details.page';
 import { GenericStartupButtonModule } from 'src/app/components/generic-startup-button/generic-startup-button.module';
-import { StartupTextContainerModule } from 'src/app/components/startup-text-container/startup-text-container.module';
 
 @NgModule({
   imports: [
@@ -17,8 +16,7 @@ import { StartupTextContainerModule } from 'src/app/components/startup-text-cont
     ReactiveFormsModule,
     IonicModule,
     LoginDetailsPageRoutingModule,
-    GenericStartupButtonModule,
-    StartupTextContainerModule
+    GenericStartupButtonModule
   ],
   declarations: [LoginDetailsPage]
 })

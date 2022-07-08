@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
-import { ProfileButtonsComponent } from '../components/profile/profile-buttons/profile-buttons.component';
 import { ProfileModule } from '../components/profile/profile-guide-post/profile.module';
 
 @NgModule({
@@ -18,6 +17,6 @@ import { ProfileModule } from '../components/profile/profile-guide-post/profile.
     Tab4PageRoutingModule,
     ProfileModule
   ],
-  declarations: [Tab4Page, ProfileButtonsComponent]
+  declarations: [Tab4Page]
 })
 export class Tab4PageModule {}

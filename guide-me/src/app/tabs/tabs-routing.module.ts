@@ -24,10 +24,6 @@ const routes: Routes = [
         loadChildren: () => import('../tab4/tab4.module').then( m => m.Tab4PageModule)
       },
       {
-        path: 'tab-map',
-        loadChildren: () => import('../tab-map/tab-map.module').then( m => m.TabMapPageModule)
-      },
-      {
         path: 'tab-create-details',
         loadChildren: () => import('../tab-create-details/tab-create-details.module').then( m => m.TabCreateDetailsPageModule)
       },

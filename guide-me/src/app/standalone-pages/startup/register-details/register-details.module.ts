@@ -9,7 +9,6 @@ import { RegisterDetailsPageRoutingModule } from './register-details-routing.mod
 import { RegisterDetailsPage } from './register-details.page';
 
 import { GenericStartupButtonModule } from 'src/app/components/generic-startup-button/generic-startup-button.module';
-import { StartupTextContainerModule } from 'src/app/components/startup-text-container/startup-text-container.module';
 
 
 @NgModule({
@@ -19,8 +18,7 @@ import { StartupTextContainerModule } from 'src/app/components/startup-text-cont
     ReactiveFormsModule,
     IonicModule,
     RegisterDetailsPageRoutingModule,
-    GenericStartupButtonModule,
-    StartupTextContainerModule
+    GenericStartupButtonModule
   ],
   declarations: [RegisterDetailsPage]
 })
