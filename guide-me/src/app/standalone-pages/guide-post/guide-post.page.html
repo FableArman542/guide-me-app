@@ -9,15 +9,11 @@
 <ion-content>
 
   <div class="tags">
-    <!-- <ion-button class="tag">Day 1</ion-button> -->
     <ion-button *ngFor="let day of getNumberOfDays()" [ngClass]="day == currentDay ? 'tag' : 'tag gray'" (click)="dayClicked($event.srcElement.innerText.split(' ')[1])">Day {{day + 1}}</ion-button>
-    <!-- <div class="tag gray">Day 3</div> -->
   </div>
 
   <div class="items-container">
     <app-day-item *ngFor="let place of dayInfo" [place]="place"></app-day-item>
-    
-    <!-- <app-day-item></app-day-item> -->
   </div>
 
 </ion-content>

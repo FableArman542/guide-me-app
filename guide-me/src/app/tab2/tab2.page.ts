@@ -69,7 +69,7 @@ export class Tab2Page {
         console.log(error);
       }
       );
-    
+
     if (this.created === '') {
       const alert = await this.alertController.create({
         header: 'Success',
@@ -79,7 +79,7 @@ export class Tab2Page {
       this.clearPage();
       // this.router.navigate(['/tabs/tab1']);
       await alert.present();
-      
+
     } else {
       const alert = await this.alertController.create({
         header: 'Error',
@@ -127,14 +127,14 @@ export class Tab2Page {
     this.tags_ = '';
     this.description_ = '';
 
-    this.router.navigate(['.'], { relativeTo: this.activatedRoute, queryParams: null});
+    this.router.navigate(['.'], { relativeTo: this.activatedRoute, queryParams: null });
 
     this.currentDay = 0;
     this.postInfo = new PostInfo('', [], '', []);
     this.days = [1];
     this.daysImgs = { 1: [] };
 
-    
+
   }
 
   addDay() {
@@ -169,6 +169,39 @@ export class Tab2Page {
 
   backClicked() {
     this.router.navigate(['/tabs/tab1']);
+  }
+
+  deleteDay(day: number, index: number) {
+
+    // Show are you sure alert
+    this.alertController.create({
+      header: 'Are you sure?',
+      message: 'Are you sure you want to delete this day?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Delete',
+          handler: () => {
+
+            let url: string = this.daysImgs[day + 1].splice(index, 1);
+            // Delete from the postInfo the place with the same day and imageUrl
+            this.postInfo.places = this.postInfo.places.filter(place => {
+              return place.day != day || place.imageUrl != url;
+            });
+
+            console.log(this.postInfo.places);
+
+          }
+        }
+      ]
+    }).then(alert => alert.present());
+
   }
 
 }

@@ -51,7 +51,7 @@
     <ion-grid>
 
       <ion-row>
-        <ion-col size="6" *ngFor="let image of daysImgs[currentDay+1]">
+        <ion-col size="6" *ngFor="let image of daysImgs[currentDay+1]; let i = index;" (click)="deleteDay(currentDay, index)">
           <img [src]="image">
         </ion-col>
       </ion-row>
