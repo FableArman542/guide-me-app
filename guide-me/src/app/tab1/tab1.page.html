@@ -23,8 +23,8 @@
         [ngClass]="'Cool' == searchTerm ? 'tag' : 'tag gray'">Cool</ion-button>
     </div>
 
-    <div *ngFor="let post of posts | filter:searchTerm; let last = last;">
-      <app-post-item [post]="post"></app-post-item>
+    <div *ngFor="let post of posts | filter:searchTerm; let i = index; let last = last;">
+      <app-post-item [post]="post" [postId]="postIds[i]" [alreadySaved]="checkIfSaved(postIds[i]) ? true : false" [id]="getPostSavedId(postIds[i])"></app-post-item>
     </div>
   </div>
 

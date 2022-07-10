@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { PostInfo } from 'src/app/models/post-info';
 import firebase from 'firebase/compat/app';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +26,19 @@ export class PostserviceService {
       .add(objectToSend);
   }
 
-  getPosts() {
+  getPostsOld() {
     // Get all posts from /posts collection
     return this.af.collection('posts').valueChanges();
+  }
+  getPosts() {
+    // Get all posts from /posts collection
+    return this.af.collection<PostInfo>('posts').snapshotChanges().pipe(map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as PostInfo;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    }));
   }
 
   getPostsByUser(userId: string) {

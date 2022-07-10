@@ -7,6 +7,7 @@ import { PostserviceService } from '../services/postservice/postservice.service'
 import * as L from 'leaflet';
 import { Map, tileLayer, marker } from 'leaflet';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { UsersService } from '../services/usersservice/users.service';
 
 
 @Component({
@@ -25,14 +26,19 @@ export class Tab1Page {
   tabSelected: string = "guide";
 
   myLogo: string = 'assets/logo.svg';
+  
   posts: PostInfo[];
+  postIds: string[] = [];
+  savedPosts: string[][] = [];
+
   defaultUrl = 'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
   newurl = 'https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
   newnewurl = 'https://images.unsplash.com/photo-1656593257978-173199f84545?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
 
   constructor(private router: Router,
     private postService: PostserviceService,
-    private nativeGeocoder: NativeGeocoder) { }
+    private nativeGeocoder: NativeGeocoder,
+    private userService: UsersService) { }
 
   ngOnInit() {
 
@@ -40,21 +46,32 @@ export class Tab1Page {
 
       let ps: PostInfo[] = [];
       postsGotten.map(post => {
+
         let postToAdd: PostInfo = new PostInfo(post['title'], post['tags'], post['description'], []);
         post['places'].map(place => {
           postToAdd.places.push(
-            new PlaceInfo(parseInt(place['day']), place['location'], place['imageUrl'], place['description'], parseInt(place['budgetValue']), place['budgetCurrency'], place['length'])
+            new PlaceInfo(place['day'], place['location'], place['imageUrl'], place['description'], place['budgetValue'], place['budgetCurrency'], place['length'])
           );
         });
         
+        this.postIds.push(post['id']);
         ps.push(postToAdd);
 
       });
       this.posts = ps;
 
     });
-  }
 
+    this.userService.getSavedPosts().subscribe(savedPosts => {
+      console.log(savedPosts[0]['post'])
+      console.log(savedPosts[0]['id'])
+      savedPosts.forEach(p => {
+        this.savedPosts.push([p['post'], p['id']]);
+      });
+
+    });
+  }
+  
   setSearchTerm(value) {
     console.log(value)
     this.searchTerm = value;
@@ -137,6 +154,25 @@ export class Tab1Page {
     console.log("ionViewDidEnter" + this.map);
     console.log("POSTS"); console.log(this.posts);
     this.leafletMap();
+  }
+
+  checkIfSaved(postId: string): boolean {
+    for (let i = 0; i < this.savedPosts.length; i++) {
+      if (this.savedPosts[i][0] == postId) {
+        return true;
+      }
+    }
+    return false;
+    // return this.savedPosts.includes(postId);
+  }
+
+  getPostSavedId(postId: string) {
+    for (let i = 0; i < this.savedPosts.length; i++) {
+      if (this.savedPosts[i][0] == postId) {
+        return this.savedPosts[i][1];
+      }
+    }
+    return null;
   }
   
 

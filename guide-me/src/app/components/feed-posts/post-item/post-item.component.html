@@ -18,6 +18,8 @@
             <p>Budget: <strong>{{getBudget()}}</strong></p>
             <p>Trip length: <strong>{{getTripLength()}}</strong></p>
         </div>
+
+        <ion-icon [name]="alreadySaved ? 'bookmark' : 'bookmark-outline'" (click)="alreadySaved ? deleteClicked($event) : saveClicked($event)"></ion-icon>
         
     </div>
 
