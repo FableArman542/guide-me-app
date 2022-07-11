@@ -44,7 +44,16 @@ export class PostserviceService {
   getPostsByUser(userId: string) {
     // Get all posts from /posts collection
     return this.af.collection('posts', ref => ref.where('userId', '==', userId)).valueChanges();
-    
+  }
+
+  getSavedPostsByUser(userId: string) {
+    // Get all saved posts from /savedPosts collection and return them as an array of PostInfo objects
+    return this.af.collection('savedPosts', ref => ref.where('userUuid', '==', userId)).valueChanges();
+  }
+
+  getPostById(postId: string) {
+    // Get post by id from /posts collection
+    return this.af.collection('posts').doc(postId).valueChanges();
   }
 
 }

@@ -7,7 +7,7 @@
   <ion-toolbar color="translucent">
     <div>
       <ion-icon src="assets/edit.svg"></ion-icon>
-      <ion-icon src="assets/settings.svg"></ion-icon>
+      <ion-icon src="assets/settings.svg" (click)="goToSettingsPage()"></ion-icon>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -39,8 +39,21 @@
   </ion-segment>
 
   <div class="horizontal-scroll" *ngIf="tabSelected==='guide'">
-      <app-profile-guide-post *ngFor="let post of posts" [post]="post"></app-profile-guide-post>
+    <app-profile-guide-post *ngFor="let post of posts" [post]="post"></app-profile-guide-post>
   </div>
-  
+
+
+  <ion-grid *ngIf="tabSelected==='saved'">
+
+    <ion-row>
+      <ion-col size="6" *ngFor="let savedPost of savedPosts; let i = index;" (click)="onPostClicked(savedPost)">
+        <img
+          [src]="savedPost.places[0].imageUrl"
+          >
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 
 </ion-content>

@@ -29,7 +29,11 @@ const routes: Routes = [
   {
     path: 'tab-create-details',
     loadChildren: () => import('./tab-create-details/tab-create-details.module').then( m => m.TabCreateDetailsPageModule)
+  },  {
+    path: 'settings',
+    loadChildren: () => import('./standalone-pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
+
 
 ];
 @NgModule({
