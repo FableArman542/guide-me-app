@@ -62,14 +62,8 @@ export class Tab1Page {
 
     });
 
-    this.userService.getSavedPosts().subscribe(savedPosts => {
-      console.log(savedPosts[0]['post'])
-      console.log(savedPosts[0]['id'])
-      savedPosts.forEach(p => {
-        this.savedPosts.push([p['post'], p['id']]);
-      });
-
-    });
+    this.getSavedPosts();
+    
   }
   
   setSearchTerm(value) {
@@ -78,7 +72,8 @@ export class Tab1Page {
   }
 
   ionViewWillLeave() {
-    this.map.remove();
+    // if map is defined, remove it
+    if (this.map) this.map.remove();
   }
 
   leafletMap() {
@@ -127,8 +122,6 @@ export class Tab1Page {
   mapVisible: boolean = false;
 
   segmentChanged(ev: any) {
-
-
     if (ev.detail.value == 'map') {
       this.mapVisible = true;
       
@@ -174,7 +167,16 @@ export class Tab1Page {
     }
     return null;
   }
+
+  getSavedPosts() {
+    this.savedPosts = [];
+    this.userService.getSavedPosts().subscribe(savedPosts => {
+      savedPosts.forEach(p => {
+        console.log(p['post'])
+        console.log(p['id'])
+        this.savedPosts.push([p['post'], p['id']]);
+      });
+    });
+  }
   
-
-
 }

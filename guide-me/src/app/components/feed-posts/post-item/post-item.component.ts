@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostInfo } from 'src/app/models/post-info';
 import { PostserviceService } from 'src/app/services/postservice/postservice.service';
 import { UsersService } from 'src/app/services/usersservice/users.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-post-item',
@@ -15,6 +16,8 @@ export class PostItemComponent implements OnInit {
   @Input() postId: string;
   @Input() alreadySaved: boolean;
   @Input() id: string;
+
+  @Output() submitEvent = new EventEmitter();
 
   testImage: string = 'https://cdn.getyourguide.com/img/location/5ffeb392eb81e.jpeg/68.jpg';
 
@@ -60,6 +63,8 @@ export class PostItemComponent implements OnInit {
     console.log('Delete Clicked ' + this.id);
 
     this.userService.deleteFromSavedPosts(this.id);
+
+    this.submitEvent.emit();
 
   }
 
