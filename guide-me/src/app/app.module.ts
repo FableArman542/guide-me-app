@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AngularFireDatabaseModule  } from "@angular/fire/compat/database";
 import { HttpClientModule } from '@angular/common/http';
+import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
 
 import { environment } from 'src/environments/environment';
 
@@ -26,7 +27,7 @@ import { environment } from 'src/environments/environment';
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, GooglePlus],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -11,6 +11,7 @@ import {
 import { FireauthserviceService } from 'src/app/services/fireauthservice/fireauthservice.service';
 import { UsersService } from 'src/app/services/usersservice/users.service';
 import { UserProfile } from 'src/app/models/user-profile';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register-details',
@@ -51,7 +52,8 @@ export class RegisterDetailsPage implements OnInit {
     private authService: FireauthserviceService,
     private usersService: UsersService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _location: Location
   ) {}
 
   ngOnInit() {
@@ -117,6 +119,10 @@ export class RegisterDetailsPage implements OnInit {
 
   goToLogin() {
     this.router.navigate(['/login-details']);    
+  }
+
+  goBack() {
+    this._location.back();
   }
 
 }

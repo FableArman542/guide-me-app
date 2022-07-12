@@ -9,6 +9,7 @@ import {
   FormGroup,
   FormControl,
 } from '@angular/forms';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -43,8 +44,13 @@ export class LoginDetailsPage implements OnInit {
   constructor(
     private authService: FireauthserviceService,
     public formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _location: Location
   ) { }
+
+  goBack() {
+    this._location.back();
+  }
 
   submit() {
     console.log('submit');
