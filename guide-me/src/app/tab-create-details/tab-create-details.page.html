@@ -16,7 +16,7 @@
     <ion-input class="input" placeholder="Add location" [(ngModel)]="locationValue"></ion-input>
 
     <div class="tags">
-      <ion-button *ngFor="let location of locations" class="tag">
+      <ion-button *ngFor="let location of locations" class="tag" (click)="locationClicked(location)">
         {{location}}
       </ion-button>
     </div>
@@ -38,8 +38,8 @@
       <p>Budget</p>
 
       <div class="twocolumns">
-        <ion-input placeholder="Value..." inputmode="numeric" type="number" [(ngModel)]="budgetValue"></ion-input>
-        <ion-input placeholder="Coin..." [(ngModel)]="budgetCurrency"></ion-input>
+        <ion-input placeholder="Value..." inputmode="numeric" type="number" [(ngModel)]="budgetValue" id="leftt"></ion-input>
+        <ion-input placeholder="Coin..." [(ngModel)]="budgetCurrency" id="rightt"></ion-input>
       </div>
     </div>
 

@@ -238,7 +238,7 @@ ion-toolbar {
             margin-top: 20px;
             margin-bottom: 20px;
 
-            gap: 30px;
+            // gap: 30px;
 
             // ion-input {
             //     margin-left: 20px;
@@ -246,6 +246,14 @@ ion-toolbar {
             // }
         }
     }
+}
+
+#rightt {
+    margin-left: 10px;
+}
+
+#leftt {
+    margin-right: 10px;
 }
 
 #triplength {

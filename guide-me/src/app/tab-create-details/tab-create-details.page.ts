@@ -113,4 +113,8 @@ export class TabCreateDetailsPage implements OnInit {
     this.router.navigate(['/tabs/tab2']);
   }
 
+  locationClicked(location: string) {
+    this.locationValue = location;
+  }
+
 }
