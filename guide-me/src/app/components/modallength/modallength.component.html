@@ -3,7 +3,6 @@
     <ion-buttons slot="start">
       <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
     </ion-buttons>
-    <ion-title>Welcome</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="confirm()">Confirm</ion-button>
     </ion-buttons>
@@ -11,7 +10,7 @@
 </ion-header>
 <ion-content class="ion-padding">
   <ion-item>
-    <ion-label position="stacked">Your name</ion-label>
+    <ion-label position="stacked">Days</ion-label>
     <ion-input [(ngModel)]="numberOfDays" placeholder="Number of Days" inputmode="numeric" type="number"></ion-input>
   </ion-item>
 </ion-content>
