@@ -18,6 +18,18 @@ export class PostserviceService {
     if (post.places[0].imageUrl == null || post.places[0].imageUrl=='') return;
 
     let currentUser = firebase.auth().currentUser;
+    
+
+    let len: number = 1;
+    for (let i = 0; i < post.places.length; i++) {
+      if (post.places[i].day + 1 > len) {
+        len = post.places[i].day + 1;
+      }
+    }
+    
+    if (len == 1) post.triplength =  length + " day";
+    else post.triplength = length + " days";
+
     let objectToSend = JSON.parse(JSON.stringify(post))
     objectToSend['userId'] = currentUser.uid;
 

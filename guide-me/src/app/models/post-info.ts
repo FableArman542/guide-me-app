@@ -6,6 +6,7 @@ export class PostInfo {
     tags: string[];
     description: string;
     places: PlaceInfo[];
+    triplength: string;
     
     constructor(title: string,
                 tags: string[],

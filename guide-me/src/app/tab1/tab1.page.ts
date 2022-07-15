@@ -8,6 +8,8 @@ import * as L from 'leaflet';
 import { Map, tileLayer, marker } from 'leaflet';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
 import { UsersService } from '../services/usersservice/users.service';
+import { ModalController } from '@ionic/angular';
+import { ModallengthComponent } from '../components/modallength/modallength.component';
 
 
 @Component({
@@ -38,7 +40,8 @@ export class Tab1Page {
   constructor(private router: Router,
     private postService: PostserviceService,
     private nativeGeocoder: NativeGeocoder,
-    private userService: UsersService) { }
+    private userService: UsersService,
+    private modalCtrl: ModalController) { }
 
   ngOnInit() {
 
@@ -54,12 +57,15 @@ export class Tab1Page {
             new PlaceInfo(place['day'], place['location'], place['imageUrl'], place['description'], place['budgetValue'], place['budgetCurrency'], place['length'])
           );
         });
+
+        postToAdd.triplength = post['triplength'];
         
         pids.push(post['id']);
         ps.push(postToAdd);
 
       });
       console.log("Posts Length: " + ps.length);
+      console.log(ps);
       console.log("Saved Posts Length: " + pids.length);
 
       this.posts = ps;
@@ -182,6 +188,32 @@ export class Tab1Page {
         this.savedPosts.push([p['post'], p['id']]);
       });
     });
+  }
+
+  async onLengthClicked() {
+
+    const modal = await this.modalCtrl.create({
+      component: ModallengthComponent,
+    });
+    modal.present();
+
+    // const { data, role } = await modal.onWillDismiss();
+
+    // console.log(data);
+    // console.log(role);
+
+    // if (role === 'confirm') {
+    //   console.log(data);
+    // }
+    modal.onWillDismiss().then(data => {
+      console.log(data);
+      if (data.data) {
+        this.searchTerm = (data.data > 1) ? data.data + " days" : data.data + " day";
+      }
+    });
+
+    
+
   }
   
 }

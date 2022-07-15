@@ -12,7 +12,7 @@
     <ion-searchbar color="search" [(ngModel)]="searchTerm"></ion-searchbar>
 
     <div class="tags">
-      <ion-button class="tag">Length</ion-button>
+      <ion-button class="tag" (click)="onLengthClicked()">Length</ion-button>
       <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)"
         [ngClass]="'Historical' == searchTerm ? 'tag' : 'tag gray'">Historical</ion-button>
       <ion-button (click)="setSearchTerm($event.srcElement.innerHTML)"
