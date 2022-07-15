@@ -45,6 +45,7 @@ export class Tab1Page {
     this.postService.getPosts().subscribe(postsGotten => {
 
       let ps: PostInfo[] = [];
+      let pids: string[] = [];
       postsGotten.map(post => {
 
         let postToAdd: PostInfo = new PostInfo(post['title'], post['tags'], post['description'], []);
@@ -54,11 +55,15 @@ export class Tab1Page {
           );
         });
         
-        this.postIds.push(post['id']);
+        pids.push(post['id']);
         ps.push(postToAdd);
 
       });
+      console.log("Posts Length: " + ps.length);
+      console.log("Saved Posts Length: " + pids.length);
+
       this.posts = ps;
+      this.postIds = pids;
 
     });
 
